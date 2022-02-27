@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Algorithms.Benchmarks.Math;
+using BenchmarkDotNet.Running;
 
 namespace Algorithms.Benchmarks
 {
@@ -6,7 +7,7 @@ namespace Algorithms.Benchmarks
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var summary = BenchmarkRunner.Run<MathBenchmarks>();
         }
     }
 }
