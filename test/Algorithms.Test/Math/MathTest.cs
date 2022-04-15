@@ -23,9 +23,9 @@ namespace Algorithms.Test.Math
         [InlineData(1, UInt32.MaxValue, 1)]
         [InlineData(2.3, 10, 4142.651121364896)]
         [InlineData(-2.2, 9, -1207.2692177920007)]
-        public void RaiseToPower_Check(Double a, UInt32 b, Double result)
+        public void RaiseToPower_Check(Double number, UInt32 power, Double expectedResult)
         {
-            Assert.Equal(result, Algorithms.Math.Math.RaiseToPower(a, b));
+            Assert.Equal(expectedResult, Algorithms.Math.Math.RaiseToPower(number, power));
         }
 
         [Fact]
