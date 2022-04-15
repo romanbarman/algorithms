@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using Algorithms.Test.Math.TestData;
 using Xunit;
 
 namespace Algorithms.Test.Math
@@ -37,6 +39,13 @@ namespace Algorithms.Test.Math
         public void RaiseToPower_Throw_Overflow_Exception()
         {
             Assert.Throws<OverflowException>(() => Algorithms.Math.Math.RaiseToPower(Double.MaxValue, 2));
+        }
+
+        [Theory]
+        [ClassData(typeof(FindFactorsTestData))]
+        public void FindFactors_Check(UInt64 number, IEnumerable<UInt64> expectedResult)
+        {
+            Assert.Equal(expectedResult, Algorithms.Math.Math.FindFactors(number));
         }
     }
 }

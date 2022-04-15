@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+
 namespace Algorithms.Math
 {
     public static class Math
@@ -55,6 +57,46 @@ namespace Algorithms.Math
             }
 
             return result * RaiseToPower(a, (b - power));
+        }
+
+        public static IEnumerable<UInt64> FindFactors(UInt64 number)
+        {
+            var result = new List<UInt64>();
+
+            if (number <= 1)
+            {
+                result.Add(number);
+
+                return result;
+            }
+
+            while (number % 2 == 0)
+            {
+                result.Add(2);
+                number /= 2;
+            }
+
+            UInt64 i = 3;
+            var maxFactor = System.Math.Sqrt(number);
+
+            while (i < maxFactor)
+            {
+                while (number % i == 0)
+                {
+                    result.Add(i);
+                    number /= i;
+                    maxFactor = System.Math.Sqrt(number);
+                }
+
+                i += 2;
+            }
+
+            if (number > 1)
+            {
+                result.Add(number);
+            }
+
+            return result;
         }
     }
 }
