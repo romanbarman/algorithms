@@ -11,8 +11,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{60D1BA7A-9
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Algorithms.Test", "test\Algorithms.Test\Algorithms.Test.csproj", "{9709D195-4CA9-4C2B-B3B4-C31B54F3C88F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Algorithms.Benchmarks", "test\Algorithms.Benchmarks\Algorithms.Benchmarks.csproj", "{2F028BDA-BD8F-494D-9016-DC57A3E28AFF}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,14 +28,9 @@ Global
 		{9709D195-4CA9-4C2B-B3B4-C31B54F3C88F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9709D195-4CA9-4C2B-B3B4-C31B54F3C88F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9709D195-4CA9-4C2B-B3B4-C31B54F3C88F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2F028BDA-BD8F-494D-9016-DC57A3E28AFF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2F028BDA-BD8F-494D-9016-DC57A3E28AFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2F028BDA-BD8F-494D-9016-DC57A3E28AFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2F028BDA-BD8F-494D-9016-DC57A3E28AFF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{3D26D22F-DB59-4311-BE11-84F7123D4BEC} = {0E494739-511B-43C6-AAF5-EA67FE7A4DE2}
 		{9709D195-4CA9-4C2B-B3B4-C31B54F3C88F} = {60D1BA7A-91D4-4EE7-B463-F6EDBBB4E063}
-		{2F028BDA-BD8F-494D-9016-DC57A3E28AFF} = {60D1BA7A-91D4-4EE7-B463-F6EDBBB4E063}
 	EndGlobalSection
 EndGlobal
