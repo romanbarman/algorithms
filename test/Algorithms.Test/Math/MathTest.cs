@@ -15,14 +15,7 @@ namespace Algorithms.Test.Math
         }
 
         [Theory]
-        [InlineData(10, 0, 1)]
-        [InlineData(10, 1, 10)]
-        [InlineData(-5, 2, 25)]
-        [InlineData(7, 6, 117649)]
-        [InlineData(-5, 11, -48828125)]
-        [InlineData(1, UInt32.MaxValue, 1)]
-        [InlineData(2.3, 10, 4142.651121364896)]
-        [InlineData(-2.2, 9, -1207.2692177920007)]
+        [ClassData(typeof(RaiseToPowerTestData))]
         public void RaiseToPower_Check(Double number, UInt32 power, Double expectedResult)
         {
             Assert.Equal(expectedResult, Algorithms.Math.Math.RaiseToPower(number, power));
