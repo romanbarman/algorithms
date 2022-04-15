@@ -24,22 +24,22 @@ namespace Algorithms.Math
             return a;
         }
 
-        public static Double RaiseToPower(Double a, UInt32 b)
+        public static Double RaiseToPower(Double number, UInt32 power)
         {
-            if (b == 0)
+            if (power == 0)
             {
                 return 1;
             }
 
-            if (b == 1)
+            if (power == 1)
             {
-                return a;
+                return number;
             }
 
-            UInt32 power = 1;
-            Double result = a;
+            UInt32 workingPower = 1;
+            Double result = number;
 
-            while (power * 2 <= b)
+            while (workingPower * 2 <= power)
             {
                 result = result * result;
 
@@ -48,15 +48,15 @@ namespace Algorithms.Math
                     throw new OverflowException("The result is infinity.");
                 }
 
-                if (power > UInt32.MaxValue / 2)
+                if (workingPower > UInt32.MaxValue / 2)
                 {
                     break;
                 }
 
-                power *= 2;
+                workingPower *= 2;
             }
 
-            return result * RaiseToPower(a, (b - power));
+            return result * RaiseToPower(number, (power - workingPower));
         }
 
         public static IEnumerable<UInt64> FindFactors(UInt64 number)
