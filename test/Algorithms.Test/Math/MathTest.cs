@@ -11,7 +11,7 @@ namespace Algorithms.Test.Math
         [ClassData(typeof(GcdTestData))]
         public void Gcd_Check(UInt64 a, UInt64 b, UInt64 expectedResult)
         {
-            Assert.Equal(expectedResult, Algorithms.Math.Math.Gcd(a, b));
+            Assert.Equal(expectedResult, Algorithms.Math.Math.FindGcd(a, b));
         }
 
         [Theory]
