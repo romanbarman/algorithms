@@ -14,7 +14,7 @@ namespace Algorithms.Math
         /// <param name="a">First number</param>
         /// <param name="b">Second number</param>
         /// <returns>GCD</returns>
-        public static UInt64 Gcd(UInt64 a, UInt64 b)
+        public static UInt64 FindGcd(UInt64 a, UInt64 b)
         {
             if (a < b)
             {
