@@ -3,8 +3,17 @@ using System.Collections.Generic;
 
 namespace Algorithms.Math
 {
+    /// <summary>
+    /// Contains math algorithms
+    /// </summary>
     public static class Math
     {
+        /// <summary>
+        /// Finds the GCD for two numbers
+        /// </summary>
+        /// <param name="a">First number</param>
+        /// <param name="b">Second number</param>
+        /// <returns>GCD</returns>
         public static UInt64 Gcd(UInt64 a, UInt64 b)
         {
             if (a < b)
@@ -24,6 +33,15 @@ namespace Algorithms.Math
             return a;
         }
 
+        /// <summary>
+        /// Raises a number to a power
+        /// </summary>
+        /// <param name="number">Number</param>
+        /// <param name="power">Power</param>
+        /// <returns>The result of raising a number to a power</returns>
+        /// <exception cref="System.OverflowException">
+        /// The result is infinity
+        /// </exception>
         public static Double RaiseToPower(Double number, UInt32 power)
         {
             if (power == 0)
@@ -59,6 +77,11 @@ namespace Algorithms.Math
             return result * RaiseToPower(number, (power - workingPower));
         }
 
+        /// <summary>
+        /// Finds prime factors for a number
+        /// </summary>
+        /// <param name="number">Number</param>
+        /// <returns>Prime factors for a number</returns>
         public static IEnumerable<UInt64> FindFactors(UInt64 number)
         {
             var result = new List<UInt64>();
