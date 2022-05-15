@@ -15,6 +15,15 @@ namespace Algorithms.Test.Structures
            Equal(list, expectedResult);
         }
 
+        [Theory]
+        [ClassData(typeof(AddAtEndTestData))]
+        public void AddAtEnd_Check(UnidirectionalLinkedList<string> list, string value, string[] expectedResult)
+        {
+           list.AddAtEnd(value);
+
+           Equal(list, expectedResult);
+        }
+
         private void Equal<T>(UnidirectionalLinkedList<T> list, T[] expectedResult)
         {
             var index = 0;
