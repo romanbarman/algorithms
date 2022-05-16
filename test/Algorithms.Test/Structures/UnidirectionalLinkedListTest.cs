@@ -24,6 +24,15 @@ namespace Algorithms.Test.Structures
            Equal(list, expectedResult);
         }
 
+        [Theory]
+        [ClassData(typeof(InsertTestData))]
+        public void Insert_Check(UnidirectionalLinkedList<string> list, UnidirectionalLinkedList<string>.Cell after, string value, string[] expectedResult)
+        {
+           list.Insert(after, value);
+
+           Equal(list, expectedResult);
+        }
+
         private void Equal<T>(UnidirectionalLinkedList<T> list, T[] expectedResult)
         {
             var index = 0;
