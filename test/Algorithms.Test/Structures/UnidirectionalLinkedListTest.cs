@@ -90,6 +90,45 @@ namespace Algorithms.Test.Structures
             Assert.Equal(expectedResult.ExpectedNext.IsLimiter, result.Next.IsLimiter);
         }
 
+        [Theory]
+        [ClassData(typeof(FindCellBeforeTestData))]
+        public void FindCellBefore_Check(UnidirectionalLinkedList<string> list, string value, UnidirectionalLinkedListInfo expectedResult)
+        {
+            var result = list.FindCellBefore(value);
+
+            if (expectedResult.Expected.IsNull)
+            {
+                Assert.Null(result);
+                return;
+            }
+
+            if (expectedResult.Expected.IsValueNull)
+            {
+                Assert.Null(result.Value);
+            }
+            else
+            {
+                Assert.Equal(expectedResult.Expected.Value, result.Value);
+            }
+            Assert.Equal(expectedResult.Expected.IsLimiter, result.IsLimiter);
+
+            if (expectedResult.ExpectedNext.IsNull)
+            {
+                Assert.Null(result.Next);
+                return;
+            }
+
+            if (expectedResult.ExpectedNext.IsValueNull)
+            {
+                Assert.Null(result.Next.Value);
+            }
+            else
+            {
+                Assert.Equal(expectedResult.ExpectedNext.Value, result.Next.Value);
+            }
+            Assert.Equal(expectedResult.ExpectedNext.IsLimiter, result.Next.IsLimiter);
+        }
+
         private void Equal<T>(UnidirectionalLinkedList<T> list, T[] expectedResult)
         {
             var lengthList = list.Count();

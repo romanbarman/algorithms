@@ -14,7 +14,7 @@ namespace Algorithms.Test.Structures.TestInformation
                 IsNull = isNull;
                 IsValueNull = isValueNull;
                 Value = value;
-                IsLimiter = IsLimiter;
+                IsLimiter = isLimiter;
             }
         }
 
