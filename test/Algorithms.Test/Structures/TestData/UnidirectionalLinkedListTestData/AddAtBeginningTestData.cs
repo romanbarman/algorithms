@@ -12,13 +12,13 @@ namespace Algorithms.Test.Structures.TestData.UnidirectionalLinkedListTestData
 
             {
                 var list = new UnidirectionalLinkedList<string>();
-                list.AddAtBeginning("A");
+                list.AddAtEnd("A");
                 yield return new object[] { list, "B", new [] { "B", "A" } };
             }
 
             {
                 var list = new UnidirectionalLinkedList<string>();
-                list.AddAtBeginning("A");
+                list.AddAtEnd("A");
                 list.AddAtEnd("B");
                 yield return new object[] { list, "C", new [] { "C", "A", "B" } };
             }
