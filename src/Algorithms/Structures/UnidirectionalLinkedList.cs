@@ -57,6 +57,11 @@ namespace Algorithms.Structures
             top = Cell.CreateLimiter();
         }
 
+        private UnidirectionalLinkedList(Cell top)
+        {
+            this.top = top;
+        }
+
         /// <summary>
         /// Adds a value to the beginning of the list
         /// </summary>
@@ -170,6 +175,29 @@ namespace Algorithms.Structures
         IEnumerator IEnumerable.GetEnumerator()
         {
             return GetEnumerator();
+        }
+
+        /// <summary>
+        /// Creates a copy of the list
+        /// </summary>
+        /// <returns>Copy of the list</returns>
+        public UnidirectionalLinkedList<T> Copy()
+        {
+            var newTop = Cell.CreateLimiter();
+
+            var cellFromNewList = newTop;
+            var cellFromOldList = top.Next;
+
+            while (cellFromOldList != null)
+            {
+                var newCell = new Cell(cellFromOldList.Value);
+                cellFromNewList.Next = newCell;
+
+                cellFromNewList = newCell;
+                cellFromOldList = cellFromOldList.Next;
+            }
+
+            return new UnidirectionalLinkedList<T>(newTop);
         }
     }
 }
