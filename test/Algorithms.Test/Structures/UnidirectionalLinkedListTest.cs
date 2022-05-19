@@ -129,6 +129,34 @@ namespace Algorithms.Test.Structures
             Assert.Equal(expectedResult.ExpectedNext.IsLimiter, result.Next.IsLimiter);
         }
 
+        [Theory]
+        [ClassData(typeof(CopyTestData))]
+        public void Copy_Check(UnidirectionalLinkedList<string> list, string[] expectedResult)
+        {
+            var newList = list.Copy();
+
+            Equal(newList, expectedResult);
+        }
+
+        [Fact]
+        public void Copy_Check_That_No_References_Between_Lists()
+        {
+            var list = new UnidirectionalLinkedList<string>();
+            list.AddAtEnd("A");
+            list.AddAtEnd("B");
+            list.AddAtBeginning("C");
+
+            var listFromCopy = list.Copy();
+
+            list.DeleteAfter(list.FindCellBefore("A"));
+            list.DeleteAfter(list.FindCellBefore("B"));
+            list.DeleteAfter(list.FindCellBefore("C"));
+
+            Assert.Empty(list);
+
+            Equal(listFromCopy, new [] { "C", "A", "B" });
+        }
+
         private void Equal<T>(UnidirectionalLinkedList<T> list, T[] expectedResult)
         {
             var lengthList = list.Count();
