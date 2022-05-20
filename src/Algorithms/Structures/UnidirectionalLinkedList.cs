@@ -199,5 +199,43 @@ namespace Algorithms.Structures
 
             return new UnidirectionalLinkedList<T>(newTop);
         }
+
+        /// <summary>
+        /// Sorts the list by selection method
+        /// </summary>
+        /// <param name="comparer">An object that implements the IComparer<T> interface</param>
+        public void SectionSort(IComparer<T> comparer)
+        {
+            var newTop = Cell.CreateLimiter();
+
+            while (top.Next != null)
+            {
+                //bestAfterMe contains the previous cell with the largest element
+                var bestAfterMe = top;
+                var bestValue = top.Next.Value;
+
+                var afterMe = top.Next;
+
+                while (afterMe.Next != null)
+                {
+                    if (comparer.Compare(afterMe.Next.Value, bestValue) > 0)
+                    {
+                        bestAfterMe = afterMe;
+                        bestValue = afterMe.Next.Value;
+                    }
+                    afterMe = afterMe.Next;
+                }
+
+                //Removing the best cell from the old list
+                var best = bestAfterMe.Next;
+                bestAfterMe.Next = best.Next;
+
+                //Add the best cell to the beginning of the new list
+                best.Next = newTop.Next;
+                newTop.Next = best;
+            }
+
+            top = newTop;
+        }
     }
 }

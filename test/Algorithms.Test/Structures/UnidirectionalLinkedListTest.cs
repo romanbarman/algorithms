@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Linq;
 using Algorithms.Structures;
 using Algorithms.Test.Structures.TestData.UnidirectionalLinkedListTestData;
@@ -155,6 +156,15 @@ namespace Algorithms.Test.Structures
             Assert.Empty(list);
 
             Equal(listFromCopy, new [] { "C", "A", "B" });
+        }
+
+        [Theory]
+        [ClassData(typeof(SectionSortTestData))]
+        public void SectionSort_Check(UnidirectionalLinkedList<int> list, int[] expectedResult)
+        {
+            list.SectionSort(Comparer<int>.Create((x, y) => x > y ?  1 : x < y ? -1 : 0));
+
+            Equal(list, expectedResult);
         }
 
         private void Equal<T>(UnidirectionalLinkedList<T> list, T[] expectedResult)
